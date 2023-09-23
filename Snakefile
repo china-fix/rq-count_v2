@@ -45,4 +45,4 @@ rule all:
         #bedtools
         #expand("report/{sample}_{ref}.tab", sample=SAMPLES, ref=REFS),
         #expand("report/{sample}_{ref}_rmdup.tab", sample=SAMPLES, ref=REFS),
-        expand("report/{sample}_{ref}_depth_rmdup.tab", sample=SAMPLES, ref=REFS),
+        expand("report/{sample}_{ref}_depth.tab", sample=SAMPLES, ref=REFS),

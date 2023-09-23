@@ -4,7 +4,7 @@
 rule bwa:
     input:
         read_1 = "out_clean_read/{sample}1.fq.gz",
-        read_2 = "out_clean_read/{sample}2.fq.gz",
+        # read_2 = "out_clean_read/{sample}2.fq.gz",
         ref = "in/REF/{ref}.REF"
     output:
         sam_file = "out_mapping/{sample}_{ref}.sam"
@@ -16,7 +16,7 @@ rule bwa:
     threads: config["general_config"]["threads_n"]
     shell:
         "bwa index {input.ref};"
-        "bwa mem -t {threads} {input.ref} {input.read_1} {input.read_2}  > {output.sam_file};"
+        "bwa mem -t {threads} {input.ref} {input.read_1} > {output.sam_file};"
         # "bwa mem -A 1 -B 8 -w 20 -T 120 -t {threads} {input.ref} {input.read_1} {input.read_2}  > {output.sam_file};"
         #"rm -f {input.ref}.amb {input.ref}.ann {input.ref}.bwt {input.ref}.pac {input.ref}.sa;"
 

@@ -5,10 +5,10 @@ rule fastp:
         #read_1 = "in/{sample}1.(fq|fastq).gz",
         #read_2 = "in/{sample}2.(fq|fastq).gz",
         read_1 = "in/{sample}1."+FQEXTN+".gz",
-        read_2 = "in/{sample}2."+FQEXTN+".gz",
+        #read_2 = "in/{sample}2."+FQEXTN+".gz",
     output:
         read_1 = "out_clean_read/{sample}1.fq.gz",
-        read_2 = "out_clean_read/{sample}2.fq.gz",
+        #read_2 = "out_clean_read/{sample}2.fq.gz",
         report_html = "out_clean_read/{sample}.html",
         report_json = "out_clean_read/{sample}.json",
     conda:
@@ -18,7 +18,7 @@ rule fastp:
         # "../envs/fastp.yaml"
     threads: config["general_config"]["threads_n"]
     shell:
-        "fastp --in1 {input.read_1} --in2 {input.read_2} --out1 {output.read_1} --out2 {output.read_2} \
+        "fastp -i {input.read_1}  -o {output.read_1}  \
         -c -h {output.report_html} -j {output.report_json} -w {threads}"
 
 # rule abricate_sum:
