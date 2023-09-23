@@ -1,0 +1,6 @@
+### config file ###
+
+### general config ###
+general_config:
+  threads_n: 4 
+
