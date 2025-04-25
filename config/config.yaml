@@ -2,5 +2,5 @@
 
 ### general config ###
 general_config:
-  threads_n: 4 
+  threads_n: 8 
 
